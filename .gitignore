@@ -3,3 +3,9 @@ __pycache__/
 *.pyc
 .env
 venv/
+
+# Media & Assets
+audio-recording/
+presentation-slides-pdf-with-notes/
+presentation-slides-png/
+
