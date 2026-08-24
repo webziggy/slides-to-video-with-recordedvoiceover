@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide & Audio Aligner</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Presentation Aligner</h1>
+        <div class="actions">
+            <button id="btn-align" class="primary">Run AI Alignment</button>
+            <button id="btn-export" class="success" disabled>Export FCP XML</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="left-panel">
+            <div class="media-container">
+                <div class="slide-preview" style="position: relative;">
+                    <!-- Default slide or empty state -->
+                    <img id="current-slide-img" src="" alt="Slide Preview">
+                    <div id="subtitle-overlay"></div>
+                </div>
+                
+                <div class="audio-player-container">
+                    {% if audio_file %}
+                    <audio id="audio-player" controls style="width: 100%;">
+                        <source src="/media/audio/{{ audio_file }}">
+                        {% if vtt_file %}
+                        <track src="/media/transcript/{{ vtt_file }}" kind="subtitles" srclang="en" label="Transcript" default>
+                        {% endif %}
+                        Your browser does not support the audio element.
+                    </audio>
+                    {% else %}
+                    <p class="error">No audio file found in audio-recording folder.</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div id="status-message">Ready. Click "Run AI Alignment" to begin.</div>
+            
+            <details class="log-container">
+                <summary>View System Logs</summary>
+                <pre id="log-output">No logs yet...</pre>
+            </details>
+        </div>
+
+        <div class="right-panel">
+            <h2>Slide Timings</h2>
+            <div id="slides-list">
+                <p class="empty-state">No timings generated yet.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
