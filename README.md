@@ -10,8 +10,13 @@ This tool transforms how organizations process and publish presentation content 
 - **Sales Enablement:** Instantly sync and distribute sales kick-off decks and training presentations.
 - **Corporate Training:** Convert live recorded workshops into structured, on-demand video learning modules.
 
+## The Origin Story & Problem Statement
+I originally built this tool to solve a painful, real-world problem for myself: I had recorded the live audio of me giving a presentation to an audience, but I failed to capture the offset timings of when I transitioned to the next slide. I was faced with the tedious prospect of manually scrubbing through an hour of audio just to figure out exactly when I clicked "next" on my slide deck. 
+
+Instead of doing it manually, I built this AI pipeline to autonomously figure out the slide timings based on what I was actually saying, allowing me to quickly output a polished video for YouTube and LinkedIn that perfectly synced my real, live voiceover with the high-quality slide images.
+
 ## The Full Agentic Workflow (From Stage to LinkedIn)
-This tool was built to solve a real-world problem: turning a live stage presentation into a polished video for LinkedIn with minimal manual editing. Here is the complete workflow used to achieve the final result:
+Here is the complete workflow I used to achieve the final result:
 1. **Audio Enhancement:** The raw audio recording from the event was first run through an AI audio enhancer to clear up the voice recording.
 2. **Transcription:** The enhanced audio was fed into MacWhisper to generate a highly accurate WebVTT (`.vtt`) transcript with speaker detection.
 3. **Agentic AI Alignment (This Tool):** Rather than a simple script, we built an agentic workflow using the **Google Gemini 3.5 Flash** API. Acting as a reasoning agent, Gemini performs multimodal context matching—taking disparate inputs (text transcripts and PDF speaker notes) and making contextual decisions on exact timing transitions. 
