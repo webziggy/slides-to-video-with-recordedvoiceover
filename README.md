@@ -28,7 +28,9 @@ This tool was built to solve a real-world problem: turning a live stage presenta
 
 ## Future Enhancements
 - **Synthetic Avatar Fallback:** If the original audio or stage lighting is poor, automatically generate a synthetic AI avatar to seamlessly deliver the speaker notes instead.
+- **Adobe Premiere Pro MCP Server:** If an MCP (Model Context Protocol) server existed for Adobe Premiere Pro, we could entirely automate the final step—allowing the AI agent to launch Premiere, ingest the FCP XML, and populate the project timeline without any manual human clicks.
 - **Audio Trimming:** Add a feature to automatically detect absolute silence at the end of the audio file and trim the final slide's duration accordingly.
+- **Cloud Transcription Integration:** While I deliberately used a local instance of MacWhisper for transcription (providing greater control and leveraging a local model attuned to my specific speech quirks), this pipeline could easily integrate cloud-based transcription APIs (like AssemblyAI or Google Cloud Speech-to-Text) for a fully remote workflow.
 
 ## Required Inputs & Formats
 To use the tool, you must collate the following specific files and place them into their respective directories:
