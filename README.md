@@ -1,20 +1,34 @@
 # Presentation Slide & Audio Aligner
 
-An AI-powered local web application that automatically aligns static presentation slides with an audio recording of a talk. It uses the Gemini API to analyze the transcript and speaker notes, generates timing options, and exports a perfectly aligned Final Cut Pro XML (FCP XML) ready for Adobe Premiere Pro.
+*A local AI pipeline that eliminates hours of manual video editing by autonomously syncing presentation slides to live audio recordings.*
 
-## The Full Workflow (From Stage to LinkedIn)
+![Web Interface in Action](docs/web_interface_demo.gif)
+
+## Commercial Use Cases
+This tool transforms how organizations process and publish presentation content at scale:
+- **B2B Event Marketing:** Rapidly publish keynote stage talks and panel discussions to social media without waiting for video editing teams.
+- **Sales Enablement:** Instantly sync and distribute sales kick-off decks and training presentations.
+- **Corporate Training:** Convert live recorded workshops into structured, on-demand video learning modules.
+
+## The Full Agentic Workflow (From Stage to LinkedIn)
 This tool was built to solve a real-world problem: turning a live stage presentation into a polished video for LinkedIn with minimal manual editing. Here is the complete workflow used to achieve the final result:
-1. **Audio Enhancement:** The raw audio recording from the event was first run through an AI audio enhancer to remove background noise and clear up the voice recording.
-2. **Transcription:** The enhanced audio was fed into MacWhisper (running locally) to generate a highly accurate WebVTT (`.vtt`) transcript with speaker detection.
-3. **AI Alignment (This Tool):** We built this custom Python/Flask app to feed the `.vtt` transcript and the original PDF slide deck (including speaker notes) into the **Google Gemini 3.5 Flash** API. Gemini intelligently calculated the exact timestamp when the speaker transitioned to each slide.
-4. **Visual Review:** Using the web interface, we reviewed the AI's timing choices, listening to the audio and watching the slides automatically update in real-time.
-5. **Premiere Pro Assembly:** The tool exported a Final Cut Pro XML (FCP XML) file containing frame-accurate cuts. This was imported directly into Adobe Premiere Pro, instantly assembling the final video timeline with zero manual syncing required.
+1. **Audio Enhancement:** The raw audio recording from the event was first run through an AI audio enhancer to clear up the voice recording.
+2. **Transcription:** The enhanced audio was fed into MacWhisper to generate a highly accurate WebVTT (`.vtt`) transcript with speaker detection.
+3. **Agentic AI Alignment (This Tool):** Rather than a simple script, we built an agentic workflow using the **Google Gemini 3.5 Flash** API. Acting as a reasoning agent, Gemini performs multimodal context matching—taking disparate inputs (text transcripts and PDF speaker notes) and making contextual decisions on exact timing transitions. 
+4. **Visual Review:** Using the web interface, we reviewed the agent's timing choices, listening to the audio and watching the slides automatically update in real-time.
+5. **Premiere Pro Assembly:** The tool exported a Final Cut Pro XML (FCP XML) file containing frame-accurate cuts. This was imported directly into Adobe Premiere Pro, instantly assembling the final video timeline.
+
+![Premiere Pro Timeline](docs/premiere_timeline.png)
 
 ## Features
-- **AI Audio Alignment**: Uses Gemini 3.5 Flash to read a WebVTT transcript and a PDF of slides (including speaker notes) to intelligently guess when the speaker transitions to each slide.
-- **Interactive Web UI**: Review Gemini's guesses, see alternative timing options with reasoning, and watch a live preview of the slides perfectly synced with the audio player and custom subtitle overlay.
+- **Agentic Audio Alignment**: Uses Gemini 3.5 Flash as a reasoning engine to map WebVTT transcripts and PDF slides (including speaker notes).
+- **Interactive Web UI**: Review the agent's contextual guesses, see alternative timing options with reasoning, and watch a live preview of the slides perfectly synced with the audio player and custom subtitle overlay.
 - **Premiere Pro Export**: Automatically updates a template FCP XML file with frame-accurate timings (25 FPS default) and absolute file paths, allowing you to import a fully cut sequence directly into Premiere Pro with zero manual syncing.
 - **Smart Caching & Fault Tolerance**: API responses are cached locally to save time and API tokens during reloads, with fallback mechanisms to handle LLM hallucinations.
+
+## Future Enhancements
+- **Synthetic Avatar Fallback:** If the original audio or stage lighting is poor, automatically generate a synthetic AI avatar to seamlessly deliver the speaker notes instead.
+- **Audio Trimming:** Add a feature to automatically detect absolute silence at the end of the audio file and trim the final slide's duration accordingly.
 
 ## Required Inputs & Formats
 To use the tool, you must collate the following specific files and place them into their respective directories:
