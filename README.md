@@ -2,14 +2,6 @@
 
 An AI-powered local web application that automatically aligns static presentation slides with an audio recording of a talk. It uses the Gemini API to analyze the transcript and speaker notes, generates timing options, and exports a perfectly aligned Final Cut Pro XML (FCP XML) ready for Adobe Premiere Pro.
 
-## About This Project: AI-Assisted Product Development & "Vibe Coding"
-
-This repository serves as a practical demonstration of modern AI-assisted product development, showcasing my approach to human-AI collaboration (a concept I explore further in my article, [*Beyond the Prompt*](https://www.linkedin.com/pulse/beyond-prompt-alan-ogilvie-iqqte/)). 
-
-While the core code in this repository was generated in collaboration with **Google's Antigravity AI agent**, the product vision, architecture, and execution were entirely driven by human direction. Acting as the Product Lead, I defined the Product Requirements, established the workflow goals, and orchestrated the AI's tasks. 
-
-Furthermore, wearing an engineering hat, I didn't just accept the AI's initial outputs. I actively engaged in architectural decision-making (such as pivoting from CMX3600 EDL to FCP XML for superior metadata handling), rigorous debugging, and UI/UX improvements. This project highlights how AI can accelerate development when guided by strong product strategy and deep technical oversight.
-
 ## The Full Workflow (From Stage to LinkedIn)
 This tool was built to solve a real-world problem: turning a live stage presentation into a polished video for LinkedIn with minimal manual editing. Here is the complete workflow used to achieve the final result:
 1. **Audio Enhancement:** The raw audio recording from the event was first run through an AI audio enhancer to remove background noise and clear up the voice recording.
@@ -83,3 +75,13 @@ To use the tool, you must collate the following specific files and place them in
 4. Review the timeline on the right. If the AI's primary guess is slightly off, click one of the alternative radio buttons to instantly update the timeline.
 5. Click **Export FCP XML**.
 6. Open Adobe Premiere Pro and go to `File > Import`. Select the `edl-out/aligned_sequence.xml` file. Your perfectly synced sequence will appear in your project bin!
+
+---
+
+> <sub>**About This Project: AI-Assisted Product Development & "Vibe Coding"**</sub>
+> 
+> <sub>*This repository serves as a practical demonstration of modern AI-assisted product development, showcasing my approach to human-AI collaboration (a concept I explore further in my article, [Beyond the Prompt](https://www.linkedin.com/pulse/beyond-prompt-alan-ogilvie-iqqte/)).*</sub>
+> 
+> <sub>*While the core code in this repository was generated in collaboration with **Google's Antigravity AI agent**, the product vision, architecture, and execution were entirely driven by human direction. Acting as the Product Lead, I defined the Product Requirements, established the workflow goals, and orchestrated the AI's tasks.*</sub>
+> 
+> <sub>*Furthermore, wearing an engineering hat, I didn't just accept the AI's initial outputs. I actively engaged in architectural decision-making (such as pivoting from a legacy EDL to a robust FCP XML structure), rigorous debugging, and UI/UX improvements. This project highlights how AI can accelerate development when guided by strong product strategy and deep technical oversight.*</sub>
