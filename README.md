@@ -4,6 +4,17 @@
 
 ![Web Interface in Action](docs/web_interface_demo.gif)
 
+## Table of Contents
+- [Commercial Use Cases](#commercial-use-cases)
+- [The Origin Story & Problem Statement](#the-origin-story--problem-statement)
+- [The Full Agentic Workflow (From Stage to LinkedIn)](#the-full-agentic-workflow-from-stage-to-linkedin)
+- [Features](#features)
+- [Agentic Guardrails & Prompt Design](#agentic-guardrails--prompt-design)
+- [Future Enhancements](#future-enhancements)
+- [Required Inputs & Formats](#required-inputs--formats)
+- [Setup Instructions](#setup-instructions)
+- [Usage](#usage)
+
 ## Commercial Use Cases
 This tool transforms how organizations process and publish presentation content at scale:
 - **B2B Event Marketing:** Rapidly publish keynote stage talks and panel discussions to social media without waiting for video editing teams.
