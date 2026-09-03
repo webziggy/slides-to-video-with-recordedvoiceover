@@ -26,6 +26,13 @@ This tool was built to solve a real-world problem: turning a live stage presenta
 - **Premiere Pro Export**: Automatically updates a template FCP XML file with frame-accurate timings (25 FPS default) and absolute file paths, allowing you to import a fully cut sequence directly into Premiere Pro with zero manual syncing.
 - **Smart Caching & Fault Tolerance**: API responses are cached locally to save time and API tokens during reloads, with fallback mechanisms to handle LLM hallucinations.
 
+## Agentic Guardrails & Prompt Design
+To ensure the Gemini 3.5 Flash API behaves consistently as a deterministic agent rather than a creative chatbot, we implemented strict system prompts and programmatic guardrails:
+- **Role & Constraints:** The model is explicitly cast as an "expert video editor" and given rigid, ordered constraints (e.g., *"Assume the presenter never physically moves back to a previous slide on the screen."*).
+- **Audience Noise Filtering:** The prompt instructs the agent to analyze the VTT speaker tags to actively ignore Q&A chatter (`<v Other>`) and isolate the primary speaker (`<v Alan Ogilvie>`).
+- **Structured JSON Output:** The model is forced to return a strict JSON schema containing arrays of timing options (with explicit reasoning for each). We run it at a low temperature (`0.2`) to minimize hallucination.
+- **Programmatic Fallbacks:** In Python, the output is strictly validated before passing to the UI. If the agent hallucinates and drops a required key (like a timing alternative), the engine automatically injects a safe fallback value so the web app never crashes.
+
 ## Future Enhancements
 - **Synthetic Avatar Fallback:** If the original audio or stage lighting is poor, automatically generate a synthetic AI avatar to seamlessly deliver the speaker notes instead.
 - **Adobe Premiere Pro MCP Server:** If an MCP (Model Context Protocol) server existed for Adobe Premiere Pro, we could entirely automate the final step—allowing the AI agent to launch Premiere, ingest the FCP XML, and populate the project timeline without any manual human clicks.
