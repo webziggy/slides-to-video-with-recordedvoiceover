@@ -14,6 +14,7 @@
 - [Required Inputs & Formats](#required-inputs--formats)
 - [Setup Instructions](#setup-instructions)
 - [Usage](#usage)
+- [About This Project (AI-Assisted Development)](#about-this-project)
 
 ## Commercial Use Cases
 This tool transforms how organizations process and publish presentation content at scale:
@@ -116,7 +117,7 @@ To use the tool, you must collate the following specific files and place them in
 6. Open Adobe Premiere Pro and go to `File > Import`. Select the `edl-out/aligned_sequence.xml` file. Your perfectly synced sequence will appear in your project bin!
 
 ---
-
+<a name="about-this-project"></a>
 > <sub>**About This Project: AI-Assisted Product Development & "Vibe Coding"**</sub>
 > 
 > <sub>*This repository serves as a practical demonstration of modern AI-assisted product development, showcasing my approach to human-AI collaboration (a concept I explore further in my article, [Beyond the Prompt](https://www.linkedin.com/pulse/beyond-prompt-alan-ogilvie-iqqte/)).*</sub>
