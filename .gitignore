@@ -13,3 +13,7 @@ edl-in/
 edl-out/
 transcript/
 
+.DS_Store
+app.log
+timings_cache.json
+.env~
